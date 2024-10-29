@@ -13,25 +13,12 @@ module.exports = {
     node: true,
   },
   root: true,
-  extends: [
-    'next',
-    'eslint:recommended',
-    'prettier',
-    'next/core-web-vitals',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'plugin:react-hooks/recommended',
-  ],
-  plugins: ['prettier', '@typescript-eslint', 'react', 'react-hooks'],
+  extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'check-file'],
   rules: {
-    // JavaScript rules
-    'prefer-const': 'warn',
-    'no-var': 'warn',
-    'no-unused-vars': 'warn',
-    'object-shorthand': 'warn',
-    'quote-props': ['warn', 'as-needed'],
-    // TypeScript rules
+    'prefer-arrow-callback': ['error'],
+    'prefer-template': ['error'],
+    semi: ['error'],
     '@typescript-eslint/array-type': [
       'warn',
       {
@@ -45,8 +32,6 @@ module.exports = {
         objectLiteralTypeAssertions: 'never',
       },
     ],
-    // React rules
-    'react/jsx-fragments': ['warn', 'syntax'], // Shorthand syntax for React fragments
     'react/jsx-filename-extension': [
       'warn',
       {
@@ -57,7 +42,15 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
-    'prettier/prettier': 'warn',
+    'check-file/filename-naming-convention': [
+      'error',
+      {
+        '**/*.{ts,tsx,js,jsx}': 'KEBAB_CASE',
+      },
+      {
+        ignoreMiddleExtensions: true,
+      },
+    ],
   },
   settings: {
     react: {
