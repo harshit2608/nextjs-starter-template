@@ -38,8 +38,8 @@ module.exports = {
         extensions: ['ts', 'tsx'],
       },
     ],
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'check-file/filename-naming-convention': [
